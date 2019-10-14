@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>jsonP</title>
+</head>
+<body>
+    你好,JSONP处理跨域
+</body>
+<script>
+    function cb(data){
+        console.log('recive'+data);
+        alert('你好,'+data)
+    }
+</script>
+<script src="http://localhost:9977/a?callback=cb"></script>
+</html>
