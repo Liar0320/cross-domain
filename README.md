@@ -1,4 +1,4 @@
-# 处理前端跨域的三种方式
+# 处理前端跨域方式
 
 ## 为什么要设置跨域
 因为[**浏览器的同源策略**](https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy)导致了跨域。
@@ -17,6 +17,8 @@
 ## 方法
 
 ### CORS<跨域资源共享>
+CORS 需要浏览器和后端同时支持。IE 8 和 9 需要通过 XDomainRequest 来实现。
+
 这里有详细的介绍[**跨域资源共享 CORS 详解**](http://www.ruanyifeng.com/blog/2016/04/cors.html)
 
 简单点说：
@@ -74,7 +76,15 @@ xhr.withCredentials = true; // 设置允许传递cookies
 res.header('Access-Control-Allow-Credentials','true');
 ```
 ### jsonP跨域
-**@TODO**
+**实现原理**：利用 script 标签没有跨域限制的漏洞，网页可以得到从其他来源动态产生的 JSON 数据。JSONP 请求一定需要对方的服务器做支持才可以。
+**JSONP优缺点**:JSONP 优点是简单兼容性好，可用于解决主流浏览器的跨域数据访问的问题。缺点是仅支持 get 方法具有局限性,不安全可能会遭受 XSS 攻击。
+**JSONP的实现流程**: 
+1. 定义一个全局方法window.<前台方法> = ()=>{} 例如：window.cb = ()=>{}
+2. 生成一个script标签src为<请求地址>?<后台方法>=<前台方法>[例如：http://localhost:9977/a?callback=cb]
+3. 服务端接受请求 将数据填充至指定格式为"<前台方法>('<数据>')"  前端接收的相应数据格式应该大致 `cb("欢迎来到9977端口，我已经放行所有的地址请求")`
+4. 前端通过window.<前台方法>获取数据
+
+换个方法说就好像 后端通过调用前端的方法将数据传递进去。
 
 ### proxy代理跨域
 实现原理：**同源策略**是浏览器需要遵循的标准，而如果是**服务器向服务器请求就无需遵循同源策略**。
