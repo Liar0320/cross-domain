@@ -19,11 +19,14 @@
         xhr.timeout = 3000;
         xhr.responseText = "text";
         xhr.open('get','http://127.0.0.1:9977',true);
-        xhr.onload = function(e){
+        xhr.setRequestHeader('t', 'extra headers');
+        // xhr.withCredentials = true; // 设置允许传递cookies
+        xhr.onload = function(e,r){
             if(this.status ==200||this.status == 304){
                 alert(this.responseText);
                 document.getElementsByTagName('label')[0].innerText = this.responseText;
             }
+            console.log(arguments);
         }
         xhr.send(formData);             
     }
