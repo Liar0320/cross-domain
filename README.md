@@ -106,3 +106,4 @@ res.header('Access-Control-Allow-Credentials','true');
 
 ## 参考
 [不要再问我跨域的问题了](https://segmentfault.com/a/1190000015597029#articleHeader4)
+[九种跨域方式实现原理](https://www.cnblogs.com/kinwing/p/11130286.html)
