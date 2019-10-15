@@ -1,16 +1,18 @@
 # 处理前端跨域方式
-  - [为什么要设置跨域](#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e8%ae%be%e7%bd%ae%e8%b7%a8%e5%9f%9f)
-  - [同源的定义](#%e5%90%8c%e6%ba%90%e7%9a%84%e5%ae%9a%e4%b9%89)
-  - [解决方法](#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%b3%95)
-    - [CORS<跨域资源共享>](#cors%e8%b7%a8%e5%9f%9f%e8%b5%84%e6%ba%90%e5%85%b1%e4%ba%ab)
-      - [简单请求](#%e7%ae%80%e5%8d%95%e8%af%b7%e6%b1%82)
-      - [非简单请求](#%e9%9d%9e%e7%ae%80%e5%8d%95%e8%af%b7%e6%b1%82)
-      - [withCredentials cookie信息的传递](#withcredentials-cookie%e4%bf%a1%e6%81%af%e7%9a%84%e4%bc%a0%e9%80%92)
-    - [jsonP跨域](#jsonp%e8%b7%a8%e5%9f%9f)
-    - [proxy代理跨域](#proxy%e4%bb%a3%e7%90%86%e8%b7%a8%e5%9f%9f)
+  - [为什么要设置跨域](#%E4%B8%BA%E4%BB%80%E4%B9%88%E8%A6%81%E8%AE%BE%E7%BD%AE%E8%B7%A8%E5%9F%9F)
+  - [同源的定义](#%E5%90%8C%E6%BA%90%E7%9A%84%E5%AE%9A%E4%B9%89)
+  - [解决方案](#%E8%A7%A3%E5%86%B3%E6%96%B9%E6%A1%88)
+    - [CORS<跨域资源共享>](#cors%E8%B7%A8%E5%9F%9F%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB)
+      - [简单请求](#%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%82)
+      - [非简单请求](#%E9%9D%9E%E7%AE%80%E5%8D%95%E8%AF%B7%E6%B1%82)
+      - [withCredentials cookie信息的传递](#withcredentials-cookie%E4%BF%A1%E6%81%AF%E7%9A%84%E4%BC%A0%E9%80%92)
+    - [jsonP跨域](#jsonp%E8%B7%A8%E5%9F%9F)
+    - [proxy代理跨域](#proxy%E4%BB%A3%E7%90%86%E8%B7%A8%E5%9F%9F)
+    - [WebSocket](#websocket)
   - [changelog](#changelog)
-  - [总结](#%e6%80%bb%e7%bb%93)
-  - [参考](#%e5%8f%82%e8%80%83)
+  - [总结](#%E6%80%BB%E7%BB%93)
+  - [参考](#%E5%8F%82%E8%80%83)
+
 
 
 ## 为什么要设置跨域
