@@ -1,4 +1,17 @@
 # 处理前端跨域方式
+  - [为什么要设置跨域](#%e4%b8%ba%e4%bb%80%e4%b9%88%e8%a6%81%e8%ae%be%e7%bd%ae%e8%b7%a8%e5%9f%9f)
+  - [同源的定义](#%e5%90%8c%e6%ba%90%e7%9a%84%e5%ae%9a%e4%b9%89)
+  - [解决方法](#%e8%a7%a3%e5%86%b3%e6%96%b9%e6%b3%95)
+    - [CORS<跨域资源共享>](#cors%e8%b7%a8%e5%9f%9f%e8%b5%84%e6%ba%90%e5%85%b1%e4%ba%ab)
+      - [简单请求](#%e7%ae%80%e5%8d%95%e8%af%b7%e6%b1%82)
+      - [非简单请求](#%e9%9d%9e%e7%ae%80%e5%8d%95%e8%af%b7%e6%b1%82)
+      - [withCredentials cookie信息的传递](#withcredentials-cookie%e4%bf%a1%e6%81%af%e7%9a%84%e4%bc%a0%e9%80%92)
+    - [jsonP跨域](#jsonp%e8%b7%a8%e5%9f%9f)
+    - [proxy代理跨域](#proxy%e4%bb%a3%e7%90%86%e8%b7%a8%e5%9f%9f)
+  - [changelog](#changelog)
+  - [总结](#%e6%80%bb%e7%bb%93)
+  - [参考](#%e5%8f%82%e8%80%83)
+
 
 ## 为什么要设置跨域
 因为[**浏览器的同源策略**](https://developer.mozilla.org/zh-CN/docs/Web/Security/Same-origin_policy)导致了跨域。
@@ -14,7 +27,7 @@
 | http://store.company.com:81/dir/etc.html          | 失败 |  不同端口 ( http:// 80是默认的)  |
 | http://news.company.com/dir/other.html            | 失败 |  不同域名 ( news和store )       |
 
-## 方法
+## 解决方案
 
 ### CORS<跨域资源共享>
 CORS 需要浏览器和后端同时支持。IE 8 和 9 需要通过 XDomainRequest 来实现。
@@ -41,6 +54,7 @@ CORS 需要浏览器和后端同时支持。IE 8 和 9 需要通过 XDomainReque
 凡是不同时满足上面两个条件，就属于非简单请求。
 
 浏览器对这两种请求的处理，是不一样的。
+
 解决方法
 ```javascript
 /**允许所有的地址访问， 取消跨域拦截 */
