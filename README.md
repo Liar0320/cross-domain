@@ -113,6 +113,19 @@ res.header('Access-Control-Allow-Credentials','true');
 
 通过代理跨域的要点是**代理服务器**必须能**遵循同源策略**接受客户端的请求。
 
+### WebSocket
+实现原理：
+
+WebSocket协议本身不要求同源策略（Same-origin Policy）,也就是某个地址为http://a.com的网页可以通过WebSocket连接到ws://b.com。
+
+但是，浏览器会发送Origin的HTTP头给服务器，服务器可以根据Origin拒绝这个WebSocket请求。所以，是否要求同源要看服务器端如何检查
+
+
+    Websocket 是 HTML5 的一个持久化的协议，它实现了浏览器与服务器的全双工通信，同时也是跨域的一种解决方案。
+    WebSocket 和 HTTP 都是应用层协议，都基于 TCP 协议。
+    WebSocket 是一种双向通信协议，在建立连接之后，WebSocket 的 server 与 client 都能主动向对方发送或接收数据。
+    WebSocket 在建立连接时需要借助 HTTP 协议，连接建立好了之后 client 与 server 之间的双向通信就与 HTTP 无关了。
+
 ## changelog
 **@TODO**
 
