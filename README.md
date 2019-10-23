@@ -93,7 +93,9 @@ res.header('Access-Control-Allow-Credentials','true');
 ```
 ### jsonP跨域
 **实现原理**：利用 script 标签没有跨域限制的漏洞，网页可以得到从其他来源动态产生的 JSON 数据。JSONP 请求一定需要对方的服务器做支持才可以。
+
 **JSONP优缺点**:JSONP 优点是简单兼容性好，可用于解决主流浏览器的跨域数据访问的问题。缺点是仅支持 get 方法具有局限性,不安全可能会遭受 XSS 攻击。
+
 **JSONP的实现流程**: 
 1. 定义一个全局方法window.<前台方法> = ()=>{} 例如：window.cb = ()=>{}
 2. 生成一个script标签src为<请求地址>?<后台方法>=<前台方法>[例如：http://localhost:9977/a?callback=cb]
@@ -135,4 +137,5 @@ WebSocket协议本身不要求同源策略（Same-origin Policy）,也就是某�
 
 ## 参考
 [不要再问我跨域的问题了](https://segmentfault.com/a/1190000015597029#articleHeader4)
+
 [九种跨域方式实现原理](https://www.cnblogs.com/kinwing/p/11130286.html)
